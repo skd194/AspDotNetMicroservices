@@ -3,15 +3,15 @@ using MongoDB.Driver;
 
 namespace Catalog.API.Data
 {
-    public class CatalogContextSeed
+    public static class CatalogContextSeed
     {
-        public static void SeedData(IMongoCollection<Product> productCollection)
+        public static void SeedData(this IMongoCollection<Product> Products)
         {
-            bool existProduct = productCollection.Find(p => true).Any();
+            bool existProduct = Products.Find(p => true).Any();
 
             if (!existProduct)
             {
-                productCollection.InsertManyAsync(GetPreConfiguredProducts());
+                Products.InsertManyAsync(GetPreConfiguredProducts());
             }
         }
 
