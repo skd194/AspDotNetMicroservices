@@ -1,8 +1,15 @@
 // UP
 
-docker-compose -d -f docker-compose.yml -f docker-compose.override.yml up 
+docker-compose  -f docker-compose.yml -f docker-compose.override.yml up -d
 
 
 // DOWN 
 
-docker-compose -d -f docker-compose.yml -f docker-compose.override.yml down
+docker-compose  -f docker-compose.yml -f docker-compose.override.yml down -d
+
+------------------------------------------------
+|  portainer credentials                       |
+------------------------------------------------
+|  username: admin                             |
+|  password: admin1234567                      | 
+------------------------------------------------
