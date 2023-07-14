@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Discount.API.Entities;
+using Discount.API.Extensions;
 using Npgsql;
 
 namespace Discount.API.Repositories
@@ -9,7 +10,7 @@ namespace Discount.API.Repositories
         private readonly string _connectionString;
         public DiscountRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetValue<string>("DatabaseSettings:ConnectionString");
+            _connectionString = configuration.GetDbConnectionString();
         }
 
         public async Task<Coupon> Get(string productName)
